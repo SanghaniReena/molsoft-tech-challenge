@@ -1,0 +1,47 @@
+{{ 'product-card-customized.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'product-card-customized.js' | asset_url }}" defer="defer"></script>
+
+{% assign product_image = product.media[1].preview_image | image_url: width: 400 | image_tag: width: 400 %}
+<div class="product-card">
+  <a href="{{ product.url }}" class="full-unstyled-link">
+    {% if product.metafields.custom.tag_value %}
+      <div class="product-badge" style="background-color:{{product.metafields.custom.color}}">
+        {{ product.metafields.custom.tag_value }}
+      </div>
+    {% endif %}
+
+    {% comment %} Primary image {% endcomment %}
+    <div class="product-image product-image-primary">
+      <img
+        srcset="
+          {{ product.featured_image | image_url: width:200 }} 400w,
+          {{ product.featured_image | image_url: width:300 }} 600w,
+          {{ product.featured_image | image_url: width:400 }} 800w,
+        "
+        sizes="
+          (max-width: 425px) 200px,  /* Small devices */
+          (max-width: 768px) 300px,  /* Medium devices */
+          (max-width: 1024px) 200px, /* Tablets */
+          330px                      /* Larger screens */
+        "
+        src="{{ product.featured_image | image_url: width:400 }}"
+        alt="{{ product.title | escape }}"
+        loading="lazy"
+        class="product-img"
+        width="400"
+        height="400"
+      >
+    </div>
+
+    {% comment %} secondary image {% endcomment %}
+    <div class="product-image product-image-secondary">
+      {{ product_image }}
+    </div>
+
+    <div class="product-info">
+      <p class="product-vendor">{{ product.vendor | upcase }}</p>
+      <h3 class="product-title">{{ product.title }}</h3>
+      <p class="product-price">{{ product.price | money }}</p>
+    </div>
+  </a>
+</div>

@@ -1,0 +1,125 @@
+/* Individual Product Card */
+.product-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    background: #ffffff;
+}
+
+/* Badge */
+.product-badge {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: #ffffff;
+    font-size: 12px;
+    padding: 2px 7px;
+    border-radius: 4px;
+}
+
+/* Product Image */
+.product-image {
+    padding: 10px;
+}
+
+.product-image img {
+    width: 100%;
+    height: auto;
+}
+
+.product-image-secondary {
+    display: none;
+}
+
+/* Product Info */
+.product-info {
+    margin-top: 10px;
+    text-align: left;
+}
+
+.product-vendor {
+    margin: 0;
+    font-size: 12px;
+    color: #777;
+}
+
+.product-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 4px 0;
+}
+
+.product-price {
+    font-size: 14px;
+    font-weight: 600;
+    color: #777;
+    margin: 3px 0;
+}
+
+
+/* Small Devices (Phones) */
+@media (max-width: 425px) {
+    .product-card {
+        height: 100%;
+    }
+
+    .product-badge {
+        font-size: 10px;
+        padding: 1px 3px;
+    }
+
+    .product-vendor,
+    .product-price {
+        font-size: 12px;
+    }
+
+    .product-title {
+        font-size: 13px;
+    }
+}
+
+/* Medium Devices (Tablets) */
+@media (min-width: 426px) and (max-width: 768px) {
+
+    .product-card {
+        height: 100%;
+    }
+
+    .product-badge {
+        top: 4px;
+        left: 4px;
+        font-size: 12px;
+        padding: 2px 3px;
+    }
+
+    .product-vendor,
+    .product-price {
+        font-size: 12px;
+    }
+
+    .product-title {
+        font-size: 15px;
+    }
+}
+
+/* Large Devices (Laptops, Desktops) */
+@media (min-width: 1024px) {
+    .product-badge {
+        font-size: 11px;
+        padding: 3px 7px;
+    }
+
+    .product-vendor {
+        font-size: 12px;
+    }
+
+    .product-title {
+        font-size: 16px;
+    }
+
+    .product-price {
+        font-size: 14px;
+    }
+}

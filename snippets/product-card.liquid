@@ -1,0 +1,33 @@
+<div class="product-card">
+  {% if product.tags contains 'Promo' %}
+    <div class="product-badge">PROMO BADGE</div>
+  {% endif %}
+ <div class="product-image">
+  <img
+    srcset="
+        {{ product.featured_image | img_url: '280x' }} 280w,
+        {{ product.featured_image | img_url: '284x' }} 284w,
+        {{ product.featured_image | img_url: '300x' }} 300w,
+        {{ product.featured_image | img_url: '400x' }} 400w
+    "
+    sizes="
+        (max-width: 425px) 140px,  
+        (max-width: 768px) 142px, 
+        (max-width: 1024px) 150px,
+        200px                     
+    "
+    src="{{ product.featured_image | img_url: '220x' }}"
+    alt="{{ product.title | escape }}"
+    loading="lazy"
+    class="product-img"
+/>
+
+
+</div>
+
+  <div class="product-info">
+    <p class="product-vendor">{{ product.vendor | upcase }}</p>
+    <h3 class="product-title">{{ product.title }}</h3>
+    <p class="product-price">{{ product.price | money }}</p>
+  </div>
+</div>
